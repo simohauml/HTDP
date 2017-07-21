@@ -126,21 +126,21 @@
       (list 'a 'c) (list 'c 'a))
 |#
 
-(arrangements empty) 
-= (list empty)
-
-(arrangements (list 'a))
-= (list (list 'a))
-
-(arrangements (list 'a 'b))
-= (list (list 'a 'b)
-	(list 'b 'a))
-
-(arrangements (list 'a 'b 'c))
-= (list (list 'a 'b 'c)
-	(list 'a 'c 'b)
-	(list 'b 'a 'c)
-	(list 'b 'c 'a)
-	(list 'c 'a 'b)
-	(list 'c 'b 'a))
+;(arrangements empty) 
+;= (list empty)
+;
+;(arrangements (list 'a))
+;= (list (list 'a))
+;
+;(arrangements (list 'a 'b))
+;= (list (list 'a 'b)
+;	(list 'b 'a))
+;
+;(arrangements (list 'a 'b 'c))
+;= (list (list 'a 'b 'c)
+;	(list 'a 'c 'b)
+;	(list 'b 'a 'c)
+;	(list 'b 'c 'a)
+;	(list 'c 'a 'b)
+;	(list 'c 'b 'a))
 
