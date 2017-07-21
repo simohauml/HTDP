@@ -1,0 +1,49 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname 11.3.4) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+;11.3.4 | Problem Statement | Table of Contents | 11.4.1
+(require htdp/draw)
+
+;; theatre-size : number
+;; size of the grid of the theatre
+(define theatre-size 10)
+
+;; seat-width : number
+;; size of each cell in the grid
+(define seat-width 10)
+
+(define window-size (* seat-width theatre-size))
+
+;; draw-vertical-lines : number -> true
+;; draws the vertical lines of the theatre grid
+(define (draw-vertical-lines n)
+  (cond
+    [(zero? n) true]
+    [else (and (draw-vertical-lines (sub1 n))
+               (draw-solid-line (make-posn 0 (* n seat-width))
+                                (make-posn window-size (* n seat-width))))]))
+
+;; draw-horizontal-lines : number -> true
+;; draws the horizontal lines of the theatre grid
+(define (draw-horizontal-lines n)
+  (cond
+    [(zero? n) true]
+    [else (and (draw-horizontal-lines (sub1 n))
+               (draw-solid-line (make-posn (* n seat-width) 0)
+                                (make-posn (* n seat-width) window-size)))]))
+
+;; riot : number -> true
+(define (riot balls)
+  (cond
+    [(zero? balls) true]
+    [else (and (draw-solid-disk (make-posn (random window-size) (random window-size))
+                                2
+                                'red)
+               (riot (sub1 balls)))]))
+
+(start window-size window-size)
+(draw-vertical-lines theatre-size)
+(draw-horizontal-lines theatre-size)
+
+;; example as test
+(riot 200)

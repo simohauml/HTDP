@@ -1,0 +1,3 @@
+#lang racket
+
+(define-struct time (hour minute second))
