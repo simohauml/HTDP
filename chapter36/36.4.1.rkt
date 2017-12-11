@@ -51,14 +51,14 @@
 (define (clear-bulb color)
   (cond
     [(symbol=? color 'red) 
-     (and (clear-solid-disk (make-posn 25 30) 20)
-          (draw-circle (make-posn 25 30) 20 'red))]
+     (and (clear-solid-disk (make-posn X-BULBS Y-RED) BULB-RADIUS)
+          (draw-circle (make-posn X-BULBS Y-RED) BULB-RADIUS 'red))]
     [(symbol=? color 'yellow) 
-     (and (clear-solid-disk (make-posn 25 80) 20)
-          (draw-circle (make-posn 25 80) 20 'yellow))]
+     (and (clear-solid-disk (make-posn X-BULBS Y-YELLOW) BULB-RADIUS)
+          (draw-circle (make-posn X-BULBS Y-YELLOW) BULB-RADIUS 'yellow))]
     [(symbol=? color 'green)
-     (and (clear-solid-disk (make-posn 25 130) 20)
-          (draw-circle (make-posn 25 130) 20 'green))]))
+     (and (clear-solid-disk (make-posn X-BULBS Y-GREEN) BULB-RADIUS)
+          (draw-circle (make-posn X-BULBS Y-GREEN) BULB-RADIUS 'green))]))
 
 ;; tests
 ;(clear-bulb 'red)
@@ -72,15 +72,15 @@
     [(symbol=? current-color 'red)
      (and (clear-bulb 'yellow)
           (clear-bulb 'green)
-          (draw-solid-disk (make-posn 25 30) 20 'red))]
+          (draw-solid-disk (make-posn X-BULBS Y-RED) BULB-RADIUS 'red))]
     [(symbol=? current-color 'yellow)
      (and (clear-bulb 'red)
           (clear-bulb 'green)
-          (draw-solid-disk (make-posn 25 80) 20 'yellow))]
+          (draw-solid-disk (make-posn X-BULBS Y-YELLOW) BULB-RADIUS 'yellow))]
     [(symbol=? current-color 'green)
      (and (clear-bulb 'red)
           (clear-bulb 'yellow)
-          (draw-solid-disk (make-posn 25 130) 20 'green))]))
+          (draw-solid-disk (make-posn X-BULBS Y-GREEN) BULB-RADIUS 'green))]))
 
 ;; tests
 ;(draw-bulb)
